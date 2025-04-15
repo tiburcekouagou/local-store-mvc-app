@@ -11,3 +11,7 @@ Container::$instance->bind(OrderController::class, fn($app) => new OrderControll
 ));
 
 Container::$instance->make(OrderController::class)->checkout();
+use App\Services\Logger;
+
+// Optional manual binding
+Container::$instance->bind(Logger::class, fn () => new Logger());
