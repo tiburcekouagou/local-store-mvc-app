@@ -9,6 +9,7 @@ class App extends Container {
         parent::__construct();
         $this->router = new Router();
         self::$instance = $this;
+        $this->bind(Config::class, fn () => new Config());
     }
     
     public function boot() {
