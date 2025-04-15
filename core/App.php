@@ -2,6 +2,9 @@
 
 namespace Core;
 
+use App\Services\Logger;
+use App\Services\Mailer;
+
 class App extends Container {
     public Router $router;
 
@@ -10,6 +13,9 @@ class App extends Container {
         $this->router = new Router();
         self::$instance = $this;
         $this->bind(Config::class, fn () => new Config());
+        $this->bind(Mailer::class, fn () => new Mailer());
+        $this->bind(Logger::class, fn () => new Logger());
+        $this->bind(Router::class, fn () => new Router());
     }
     
     public function boot() {

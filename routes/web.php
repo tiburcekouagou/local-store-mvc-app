@@ -3,15 +3,15 @@
 use App\Controllers\OrderController;
 use Core\App;
 use Core\Container;
+use Core\Facades\Route;
 
 
-$router = App::router();
 
-$router->get('/', function () {
+Route::get('/', function () {
     return "Bienvenue sur notre mini framework";
 });
 
-$router->get('/checkout', function () {
+Route::get('/checkout', function () {
     $controller = Container::$instance->make(OrderController::class);
     $controller->checkout();
     return '';
