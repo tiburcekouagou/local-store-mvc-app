@@ -1,7 +1,8 @@
 <?php
 
-use App\Test;
+use Core\App;
 
 require __DIR__ . "/../vendor/autoload.php";
 
-echo (new Test())->hello();
+$app = new App();
+$app->boot();
